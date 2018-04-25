@@ -3,8 +3,8 @@
 
 /.idea/
 
-log.txt
+/log/
 
-/assets/login.json
+/assets/
 
-/assets/qrcode.png
+!/assets/default-emos/

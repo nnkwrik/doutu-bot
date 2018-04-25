@@ -1,4 +1,4 @@
-# wechat-robot4doutu
+# doutu-bot
 斗图专用机器人！边挂机边怼人:ok_hand:
 # 原理
 **api，技术：**
@@ -19,9 +19,11 @@
 
 ![](doc/screenshot.jpg)
 
-### 还可以这样！:see_no_evil:
+### 其实是这样！:see_no_evil:
 
 ![](doc/console.png)
 
-目前来看,能搜索到合适表情的概率较低:wave:
+目前来看,能搜索到合适表情的概率较低
+# 最后!:eyes::eyes:
+![](doc/donation.jpg)
 
