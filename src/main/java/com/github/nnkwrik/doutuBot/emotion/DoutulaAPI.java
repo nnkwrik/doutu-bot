@@ -36,7 +36,8 @@ public class DoutulaAPI {
             List<EmoInfo> infoList = resultJson.getData().getList();
             String emoUrl;
             while (true) {
-                emoUrl = infoList.get(WeChatUtils.random(0, infoList.size() - 1)).getImage_url();
+                //靠前的比较准?
+                emoUrl = infoList.get(WeChatUtils.random(0, 10)).getImage_url();
                 if (emoUrl.startsWith("https:")) {
                     break;
                 }

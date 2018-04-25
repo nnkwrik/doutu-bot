@@ -13,7 +13,7 @@ public class TestJava {
      * 获取无后缀文件的文件类型
      */
     @Test
-    public void testContentType(){
+    public void testContentType() {
         Path path = Paths.get("/home/user/code/wechat-robot4doutu/assets/images/2018/04/23/3659716335796410254null");
         String type = null;
         try {
@@ -23,15 +23,22 @@ public class TestJava {
         }
 
         String[] str = type.split("/");
-        System.out.println("type is " + str[str.length-1]);
+        System.out.println("type is " + str[str.length - 1]);
 
     }
 
     @Test
-    public void testSubString(){
+    public void testSubString() {
         String str = "http://emoji.qpic.cn/wx_emoji/bCypfSTlfOuzoB9jFrRBf5scjLOmTEfgcSxHerJCTg01l0YibjyIUUA/";
-        System.out.println( str.substring(str.lastIndexOf("/")));
+        System.out.println(str.substring(str.lastIndexOf("/")));
 
+    }
+
+    @Test
+    public void testReplase() {
+        String responseText = "您好，我是[cqname]，有什么可以帮您的吗？";
+        responseText = responseText.replaceAll("\\[cqname\\]", "我");
+        System.out.println(responseText);
     }
 
 

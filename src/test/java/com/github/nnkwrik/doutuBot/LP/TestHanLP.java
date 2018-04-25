@@ -13,12 +13,29 @@ public class TestHanLP {
 
         String content = "看小主人笑的这么开心，我的心里也花儿一样美丽呢！能让小主人快乐就是我最大的快乐。";
 
-        System.out.println( HanLP.extractKeyword(content, 1));
+        System.out.println( HanLP.extractKeyword(content, 3));
         content = content.replaceAll("小主人","你");
         System.out.println(content);
+        System.out.println( HanLP.extractKeyword(content, 3));
+
+
+    }
+
+    @Test
+    public void testLSize(){
+        // String content ="我在陪你聊天啊小主人。".replaceAll("小主人","你");
+        String content = "我还不饿，吃不下饭";
         System.out.println( HanLP.extractKeyword(content, 1));
+        System.out.println( HanLP.extractKeyword(content, 2));
+        System.out.println( HanLP.extractKeyword(content, 3));
+        String keywords="";
 
+        for (String str : HanLP.extractKeyword(content, 3) ) {
+            keywords +=str + "+";
+        }
+        keywords = keywords.substring(0,keywords.length()-1);
 
+        System.out.println(keywords);
     }
 
     @Test

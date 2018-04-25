@@ -37,8 +37,10 @@ public class MessageHandler extends WeChatBot {
         switch (robotType) {
             case TULING:
                 robot = new TulingRobot(env);
+                break;
             case MOLI:
                 robot = new MoliRobot(env);
+                break;
         }
 
     }
@@ -56,12 +58,15 @@ public class MessageHandler extends WeChatBot {
             return;
         }
         String responseText = robot.getResult(message.getText());
-        //进行中文分词处理
-        String keyword = HanLP.extractKeyword(responseText, 1).get(0);
-        log.info("从" + robot.getRobType() + "的响应：'{}'中提取到关键字:【{}】 ", responseText, keyword);
-        String dirPath = doutulaAPI.getEmoByKeyword(keyword);
+        String keywords = "";
+        for (String str : HanLP.extractKeyword(responseText, 3)) {
+            keywords += str + "+";
+        }
+        keywords = keywords.substring(0, keywords.length() - 1);
+        log.info("从" + robot.getRobType() + "的响应：\"{}\"中提取到关键字:【{}】 ", responseText, keywords);
+        String dirPath = doutulaAPI.getEmoByKeyword(keywords);
         emoAPI.sendEmo(message.getFromUserName(), dirPath);
-        log.info("自动回复好友 [{}] 斗图啦表情: {}", message.getName(), dirPath);
+        log.info("根据关键字【{}】搜索表情,自动回复好友 [{}] ", keywords, message.getName());
     }
 
 
@@ -92,7 +97,7 @@ public class MessageHandler extends WeChatBot {
         if (StringUtils.isEmpty(message.getFromUserName())) {
             return;
         }
-        log.info("好友 [{}] 发来的视频或语音，无法处理该类型");
+        log.info("好友 [{}] 发来的视频或语音，无法处理该类型",message.getName());
         emoAPI.sendDefaultEmo(message.getFromUserName());
         log.info("自动回复好友 [{}] 默认表情", message.getName());
 

@@ -18,7 +18,7 @@ public class TestUtil {
     }
 
     /**
-     * clear all multiFile in assets
+     * 清除项目本地的所有多媒体文件
      */
     @Test
     public void testClearAsset(){

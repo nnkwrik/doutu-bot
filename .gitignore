@@ -1,3 +1,10 @@
 ##ignore this file##
 /target/ 
 
+/.idea/
+
+log.txt
+
+/assets/login.json
+
+/assets/qrcode.png

@@ -31,7 +31,13 @@ public class MoliRobot extends Robot {
         Request request = new Request.Builder().url(url).build();
         try {
             Response response = okHttpClient.newCall(request).execute();
-            return response.body().string();
+            String responseText = response.body().string();
+
+            //没有设置Moli的api_key时,称呼会被代码代替,如 "[name]你好，我在发呆呢！"
+            responseText = responseText.replaceAll("\\[cqname\\]", "我");
+            responseText = responseText.replaceAll("\\[name\\]", "你");
+            responseText = responseText.replaceAll("\\[sex\\]", "女");
+            return responseText;
         } catch (IOException e) {
             e.printStackTrace();
         }

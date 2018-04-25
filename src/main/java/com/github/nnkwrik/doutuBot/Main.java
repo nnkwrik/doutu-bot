@@ -13,7 +13,7 @@ public class Main {
     public static void main(String[] args) {
         if(FileUtil.clearAllMultiFile()){
             Config config = Config.me().autoLogin(true).showTerminal(true);
-            new MessageHandler(config ,RobotType.TULING).start();
+            new MessageHandler(config ,RobotType.MOLI).start();
         }
     }
 }
